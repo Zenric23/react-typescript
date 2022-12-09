@@ -1,3 +1,4 @@
+// GENERIC
 export function getArray(items : any[] ) : any[] {
     return new Array().concat(items);
 }
@@ -29,11 +30,11 @@ console.log(myStrArr); // ["Hello", "World", "Hello TypeScript", 500]
 // myStrArr.push(500); // Compiler Error
 
 
-function displayType<T, U>(id:T, name:U): void { 
-    console.log(typeof(id) + ", " + typeof(name));  
+export function displayType<T, U, Y>(id:T, name:U, isOld:Y): void { 
+    console.log(typeof(id) + ", " + typeof(name) + ", " + typeof(isOld));  
   }
   
-  displayType<number, string>(1, "Steve"); // number, string
+  displayType<number, string, boolean>(1, "Steve", true); // number, string
 
 
 function displayNames<T>(names:T[]): void { 
@@ -43,29 +44,41 @@ function displayNames<T>(names:T[]): void {
 
 displayNames<string>(["Steve", "Bill"]); // Steve, Bill
 
+// TUPLE
+var employee: [number, string] = [1, "Steve"];
+employee[1] = employee[1].concat(" Jobs"); 
+console.log(employee); //Output: [1, 'Steve Jobs']
+
+//UNION
+let code: (string | number);
+code = 123;   // OK
+code = "ABC"; // OK
+code = false; // Compiler Error
+
+let empId: string | number;
+empId = 111; // OK
+empId = "E111"; // OK
+empId = true; // Compiler Error
+
+// function displayType(code: (string | number))
+// {
+//     if(typeof(code) === "number")
+//         console.log('Code is number.')
+//     else if(typeof(code) === "string")
+//         console.log('Code is string.')
+// }
+
+
+// displayType(123); // Output: Code is number.
+// displayType("ABC"); // Output: Code is string.
+// displayType(true); //Compiler Error: Argument of type 'true' is not assignable to a parameter of type string | number
+
+
+// ANY
+let arr: any[] = ["John", 212, true]; 
+arr.push("Smith"); 
+console.log(arr); //Output: [ 'John', 212, true, 'Smith' ] 
+
 
 // https://www.tutorialsteacher.com/typescript/typescript-generic
-
-// let num1:number = 1; 
-    
-// function letDeclaration() { 
-// let num2:number = 2; 
-
-// if (num2 > num1) { 
-//     let num3: number = 3;
-//     num3++; 
-// } 
-
-// while(num1 < num2) { 
-//     let num4: number = 4;
-//     num1++;
-// }
-
-// console.log(num1); //OK
-// console.log(num2); //OK 
-// console.log(num3); //Compiler Error: Cannot find name 'num3'
-// console.log(num4); //Compiler Error: Cannot find name 'num4'
-// }
-
-// letDeclaration();
 
