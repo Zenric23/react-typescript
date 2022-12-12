@@ -3,6 +3,83 @@
 @tailwind utilities;
 
 
-* {
+/* * {
   font-family: 'Roboto Mono', monospace;
+} */
+
+
+.navlink {
+  @apply cursor-pointer transition ease-in-out hover:text-indigo-600
 }
+
+.text-shadow {
+  @apply drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)] 
+}
+
+.text-title {
+  @apply text-shadow text-4xl font-extrabold text-gray-700
+}
+
+.tech-badge {
+  @apply rounded-full py-1 px-4 bg-gray-300 text-gray-700 font-medium
+}
+
+.icon {
+  @apply p-3 bg-gray-600 text-white rounded-full text-2xl cursor-pointer hover:scale-110 transition ease-in-out relative
+}
+
+
+
+.heroBtn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -3px;
+  left: -3px;
+  border: 1px solid #4F46E5;
+  border-radius: 10px;
+  transform: rotate(176deg);
+}
+
+
+.project-image-card::after {
+  content: '';
+  position: absolute;
+  top: -50px;
+  bottom: -50px;
+  right: -20px;
+  left: 60px;
+  border: 1px solid #4F46E5;
+  border-radius: 10px;
+  transform: rotate(-1deg);
+  z-index: 1;
+  /* background-color: rgba(235, 225, 225, 0.3); */
+}
+
+.project-image-card-reverse::after {
+  content: '';
+  position: absolute;
+  top: -50px;
+  bottom: -50px;
+  right: 60px;
+  left: -20px;
+  border: 1px solid #4F46E5;
+  border-radius: 10px;
+  transform: rotate(-1deg);
+  z-index: 1;
+  /* background-color: rgba(235, 225, 225, 0.3); */
+}
+
+
+
+.icon::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  bottom: -3px;
+  right: -3px;
+  border-radius: 50%;
+  border: 1px solid #4b5563;
+} 
