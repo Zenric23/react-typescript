@@ -3,7 +3,7 @@ import pic from "../assets/images/me.webp";
 
 const Contact = () => {
   return (
-    <div className="grid md:grid-cols-3 gap-10 relative project-image-card-reverse items-center">
+    <div className="grid md:grid-cols-3 gap-10 relative project-image-card-reverse items-center" id="contact">
       <img
         src={pic}
         alt=""

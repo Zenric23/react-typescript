@@ -6,7 +6,7 @@ import { FiGithub } from 'react-icons/fi'
 
 const About = () => {
   return (
-    <div className="grid md:grid-cols-3 gap-10 project-image-card relative after:bg-white">
+    <div className="grid md:grid-cols-3 gap-10 project-image-card relative after:bg-white" id="about">
       <div className="bg-white rounded-xl p-10 col-span-2 z-10 shadow-2xl">
         <h3 className="text-title mb-4">about me</h3>
         <div className="text-indigo-600 text-xl font-bold mb-10">

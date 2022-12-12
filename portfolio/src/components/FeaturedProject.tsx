@@ -36,7 +36,7 @@ const featuredProjects: Project[] = [
 const FeaturedProject = () => {
   
   return (
-    <div>
+    <div id='projects'>
       <h3 className="text-title mb-4">recent projects</h3>
       <div className="text-indigo-600 text-xl font-bold mb-36">_what i have developed?</div>
       <div className="grid gap-40">

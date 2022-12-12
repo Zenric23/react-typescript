@@ -6,7 +6,7 @@ import pic from '../assets/images/me.webp'
 const Hero = () => {
 
   return (
-    <div className='h-[80vh] flex gap-20 items-center'>
+    <div className='h-[80vh] flex gap-20 items-center' id='home'>
       <img src={pic} alt="" className='hover:rotate-[-20deg] transition duration-300 cursor-pointer' />
       <div className="flex flex-col gap-3">
         <h2 className="text-gray-600 text-2xl font-semibold tracking-widest">Hello, I'm Zenric Clarete.</h2>

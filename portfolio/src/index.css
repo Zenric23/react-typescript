@@ -3,9 +3,10 @@
 @tailwind utilities;
 
 
-/* * {
-  font-family: 'Roboto Mono', monospace;
-} */
+*{
+  scroll-behavior: smooth !important;
+}
+  
 
 
 .navlink {
