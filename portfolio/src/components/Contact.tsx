@@ -7,7 +7,7 @@ const Contact = () => {
       <img
         src={pic}
         alt=""
-        className="h-[340px] w-[340px] hover:rotate-[-20deg] transition duration-300 cursor-pointer z-10"
+        className="h-[340px] w-[340px] hover:rotate-[-20deg] transition duration-300 cursor-pointer z-10 hidden lg:inline"
       />
       <div className="p-10 bg-white rounded-xl md:col-span-2 shadow-2xl z-10">
         <h3 className="text-title mb-4">let's work together</h3>

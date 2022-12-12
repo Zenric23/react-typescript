@@ -26,7 +26,7 @@ const Experience = () => {
       <div className="text-indigo-600 text-xl font-bold mb-20">
         _what i have done?
       </div>
-      <div className="grid md:grid-cols-2 gap-20">
+      <div className="grid lg:grid-cols-2 gap-20">
         {
           experiences.map(exp=> (
             <div key={exp.company}>

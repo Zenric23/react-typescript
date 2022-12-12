@@ -6,7 +6,7 @@ import { FiGithub } from 'react-icons/fi'
 
 const Footer = () => {
   return (
-    <div className="flex justify-between items-center pb-20">
+    <div className="flex flex-col gap-10 lg:flex-row justify-between items-center pb-20">
       <div className="flex gap-4">
           <a className="icon">
             <FiGithub />

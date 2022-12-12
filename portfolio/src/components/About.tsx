@@ -34,7 +34,7 @@ const About = () => {
           </a>
         </div>
       </div>
-      <img src={thinking} alt="" className="z-10" />
+      <img src={thinking} alt="" className="z-10 hidden lg:inline" />
     </div>
   );
 };

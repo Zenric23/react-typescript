@@ -42,10 +42,10 @@ const FeaturedProject = () => {
       <div className="grid gap-40">
         {
           featuredProjects.map(item=> (
-            <div className='flex gap-10  project-image-card relative after:bg-white'>
+            <div className='flex flex-col lg:flex-row gap-10  project-image-card relative after:bg-white'>
               <img 
                 src="https://eugenebadato.vercel.app/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2F16zwqt7odl38%2F4535K10nsvaMIGAWbMdKRg%2F4e786af3f8ad2ed6ec93e0e829e662c3%2FScreenshot_7.png&w=1920&q=75" alt="" 
-                className='rounded-xl w-[700px] h-[350px] z-10'
+                className='rounded-xl w-[500px] 2xl:w-[700px] h-[250px] 2xl:h-[350px] z-10'
               />
               <div className='z-10'>
                 <h2 className="text-2xl font-extrabold text-gray-700 mb-2.5">

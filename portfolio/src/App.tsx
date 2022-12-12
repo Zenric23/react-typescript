@@ -12,7 +12,7 @@ function App() {
     <>
     <div className="bg-gray-50 select-none">
       <Navbar />
-      <div className="px-56 space-y-52">
+      <div className="px-10 lg:px-48 2xl:px-56 space-y-52">
         <Hero />
         <FeaturedProject />
         <Experience />
