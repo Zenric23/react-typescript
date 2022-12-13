@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { BsMoonStars } from 'react-icons/bs'
 import {AiOutlineMenu } from 'react-icons/ai'
+import { DarkModeContext } from '../context/darkModeContext'
 
 
 interface Navlink {
@@ -28,7 +29,9 @@ const navLinks: Navlink[] = [
 ]
 
 const Navbar = () => {
+  const { dark, toogleDarkMode } = useContext(DarkModeContext) as DarkModeContextType
   const [open, setOpen] = useState(false)
+
 
   useEffect(()=> {
     if(open) {
@@ -47,7 +50,7 @@ const Navbar = () => {
         <AiOutlineMenu/>
       </span>
       <span className="font-bold text-2xl hidden md:inline">ZENRIC.</span>
-      <div className={`flex gap-20 md:items-center top-[102%] absolute md:static w-[70%] md:w-auto bg-gray-100 md:bg-transparent z-10 md:z-0 p-5 md:p-0 h-[calc(100vh-60px)] ${open ? 'left-0' : 'left-[-70%]'} transition-all md:transition-none ease-out duration-300`}>
+      <div className={` ${dark ? 'dark' : ''} flex gap-20 md:items-center top-[102%] absolute md:static w-[70%] md:w-auto bg-gray-100 md:bg-transparent z-10 md:z-0 p-5 md:p-0 h-[calc(100vh-60px)] ${open ? 'left-0' : 'left-[-70%]'} transition-all md:transition-none ease-out duration-300`}>
         <ul className='flex gap-7 md:gap-10 font-bold flex-col md:flex-row'>
           {
             navLinks.map(link=> (
@@ -56,7 +59,7 @@ const Navbar = () => {
           }
         </ul>
       </div>
-      <div className="text-2xl cursor-pointer absolute md:static right-5">
+      <div className="text-2xl cursor-pointer absolute md:static right-5" onClick={toogleDarkMode}>
         <BsMoonStars />
       </div>
     </nav>
