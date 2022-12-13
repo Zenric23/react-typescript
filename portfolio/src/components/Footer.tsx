@@ -8,13 +8,13 @@ const Footer = () => {
   return (
     <div className="flex flex-col gap-10 lg:flex-row justify-between items-center pb-20">
       <div className="flex gap-4">
-          <a className="icon">
+          <a href="https://github.com/Zenric23" target='_blank' className="icon">
             <FiGithub />
           </a>
-          <a className="icon">
+          <a href="https://profile.indeed.com/?hl=en_PH&co=PH&from=gnav-homepage&_ga=2.203995094.797627152.1670848456-219345077.1670667454" target="_blank" className="icon">
             <SiIndeed />
           </a>
-          <a className="icon">
+          <a className="icon" href="https://www.facebook.com/zenric.clarete" target='_blank'>
             <GrFacebookOption />
           </a>
         </div>
