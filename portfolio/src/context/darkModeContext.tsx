@@ -1,13 +1,13 @@
-import * as React from 'react';
+import  React, { createContext, useState } from 'react';
 
-export const DarkModeContext = React.createContext<DarkModeContextType | null>(null);
+export const DarkModeContext = createContext<DarkModeContextType | null>(null);
 
 interface Props {
     children: React.ReactNode
 }
 
 const DarkModeProvider: React.FC<Props> = ({ children }) => {
-    const [dark, setDark] = React.useState<boolean>(false)
+    const [dark, setDark] = useState<boolean>(false)
 
     const toogleDarkMode = (): void => {
         setDark(!dark)

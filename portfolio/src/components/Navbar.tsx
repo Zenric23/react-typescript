@@ -29,7 +29,7 @@ const navLinks: Navlink[] = [
 ]
 
 const Navbar = () => {
-  // const { dark, toogleDarkMode } = useContext(DarkModeContext) as DarkModeContextType
+  const { toogleDarkMode } = useContext(DarkModeContext) as DarkModeContextType
   const [open, setOpen] = useState(false)
 
 
@@ -59,7 +59,7 @@ const Navbar = () => {
           }
         </ul>
       </div>
-      <div className="text-2xl cursor-pointer absolute md:static right-5" >
+      <div className="text-2xl cursor-pointer absolute md:static right-5" onClick={toogleDarkMode}>
         <BsMoonStars />
       </div>
     </nav>

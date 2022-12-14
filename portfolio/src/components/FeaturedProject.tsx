@@ -53,14 +53,14 @@ const FeaturedProject = () => {
           featuredProjects.map(item=> (
             <div key={item.id} className='grid md:grid-cols-3 gap-10  project-image-card relative after:bg-white'>
               <div 
-                className="col-span-2 z-10 h-full lg:h-[350px] rounded-xl relative transition duration-500 ease-in-out hover:scale-105 shadow-lg" 
+                className="col-span-2 z-10 h-full lg:h-[350px] rounded-xl relative transition duration-300 ease-in-out hover:scale-105 shadow-lg" 
                 style={getStyle(item.image)}
                 onMouseOver={()=>setShowAdminImg(true)}
                 onMouseLeave={()=>setShowAdminImg(false)}
               >
                 <img 
                   src={item.dashboard} alt="" 
-                  className={`rounded-xl h-full w-full border transition-all duration-500 ease-in-out ${showAdminImg ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
+                  className={`rounded-xl h-full w-full border transition-all duration-300 ease-in-out ${showAdminImg ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
                 />
               </div>
               <div className='z-10'>
