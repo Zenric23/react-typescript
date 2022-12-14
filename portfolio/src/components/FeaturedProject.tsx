@@ -31,7 +31,6 @@ const featuredProjects: Project[] = [
 ]
 
 
-
 const FeaturedProject = () => {
   
   return (
@@ -44,7 +43,7 @@ const FeaturedProject = () => {
             <div key={item.id} className='flex flex-col md:flex-row gap-10  project-image-card relative after:bg-white'>
               <img 
                 src={item.image} alt="" 
-                className='rounded-xl w-[500px] 2xl:w-[700px] h-[250px] 2xl:h-[350px] z-10 border cursor-pointer shadow-lg transition duration-300 ease-in-out hover:scale-105'
+                className='relative featuredProjImage rounded-xl w-[500px] 2xl:w-[700px] h-[250px] 2xl:h-[350px] z-10 border cursor-pointer shadow-lg transition duration-300 ease-in-out hover:scale-105'
               />
               <div className='z-10'>
                 <h2 className="text-2xl font-extrabold text-gray-700 mb-2.5">
