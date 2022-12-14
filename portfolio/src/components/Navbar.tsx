@@ -44,7 +44,7 @@ const Navbar = () => {
 
   return (
     <>
-    <div onClick={()=>setOpen(false)} className={`fixed inset-0 bg-black/60 transition-opacity ease-in-out duration-300 ${open ? 'opacity-100 visible' : 'opacity-0 invisible'}`} />
+    <div onClick={()=>setOpen(false)} className={`fixed inset-0 bg-black/60 transition-all ease-in-out duration-300 ${open ? 'opacity-100 visible' : 'opacity-0 invisible'}`} />
     <nav className='h-[60px] px-10 lg:px-56 flex items-center justify-between text-gray-700 shadow-md md:shadow-none relative bg-white md:bg-transparent'>
       <span onClick={()=>setOpen(!open)} className="inline md:hidden absolute left-5 text-2xl cursor-pointer">
         <AiOutlineMenu/>

@@ -32,6 +32,7 @@
   @apply p-3 bg-gray-600 text-white rounded-full text-2xl cursor-pointer hover:scale-110 transition ease-in-out relative
 }
 
+
 .heroBtn::after {
   content: '';
   position: absolute;
