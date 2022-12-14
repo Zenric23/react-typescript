@@ -31,6 +31,7 @@ const featuredProjects: Project[] = [
 ]
 
 
+
 const FeaturedProject = () => {
   
   return (
@@ -40,11 +41,13 @@ const FeaturedProject = () => {
       <div className="grid gap-40">
         {
           featuredProjects.map(item=> (
-            <div key={item.id} className='flex flex-col md:flex-row gap-10  project-image-card relative after:bg-white'>
-              <img 
-                src={item.image} alt="" 
-                className='relative featuredProjImage rounded-xl w-[500px] 2xl:w-[700px] h-[250px] 2xl:h-[350px] z-10 border cursor-pointer shadow-lg transition duration-300 ease-in-out hover:scale-105'
-              />
+            <div key={item.id} className='grid md:grid-cols-3 gap-10  project-image-card relative after:bg-white'>
+              <div className="col-span-2 z-10 h-full lg:h-[350px] rounded-xl">
+                <img 
+                  src={item.image} alt="" 
+                  className='rounded-xl h-full w-full border cursor-pointer shadow-lg transition duration-300 ease-in-out hover:scale-105'
+                />
+              </div>
               <div className='z-10'>
                 <h2 className="text-2xl font-extrabold text-gray-700 mb-2.5">
                   {item.title}
