@@ -25,7 +25,7 @@ const experiences: Experience[] = [
 const Experience = () => {
   return (
     <div>
-      <h3 className="text-title mb-4">experience</h3>
+      <h3 className="text-title mb-4 dark:text-gray-200">experience</h3>
       <div className="text-indigo-600 text-xl font-bold mb-20">
         _what i have done?
       </div>
@@ -33,8 +33,8 @@ const Experience = () => {
         {
           experiences.map(exp=> (
             <div key={exp.company}>
-              <h2 className="text-xl text-gray-700 mb-1 font-bold">{exp.company}</h2>
-              <div className="text-gray-700">{exp.position}</div>
+              <h2 className="text-xl text-gray-700 mb-1 font-bold dark:text-gray-400">{exp.company}</h2>
+              <div className="text-gray-700 dark:text-gray-400">{exp.position}</div>
               <div className="text-gray-500 mt-1 mb-4 text-sm">{exp.date}</div>
               <p className="text-gray-500 text-justify font-medium">{exp.desc}</p>
             </div>
