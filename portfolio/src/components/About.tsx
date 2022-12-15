@@ -9,16 +9,16 @@ const About = () => {
   const { dark } = useContext(DarkModeContext) as DarkModeContextType
 
   return (
-    <div className={`${dark ? 'after:bg-gray-800' : 'after:bg-white'} grid md:grid-cols-3 gap-10 project-image-card relative after:bg-white`} id="about">
+    <div className={`${dark ? 'after:bg-gray-800' : 'after:bg-white'} grid md:grid-cols-3 gap-10 project-image-card relative`} id="about">
       <div className="bg-white dark:bg-gray-700 rounded-xl p-10 col-span-2 z-10 shadow-2xl">
         <h3 className="text-title mb-4 dark:text-gray-100">about me</h3>
         <div className="text-indigo-600 text-xl font-bold mb-10">
           _who i am?
         </div>
         <p className="text-gray-500 dark:text-gray-400 text-justify font-medium">
-          I'm <strong>Zenric T. Clarete</strong> from KidapAwan City, Philippines. Currently a fourth year student at Notre Dame of 
-          Kidapawan College, taking <strong>Bachelor of Information Technology</strong> (BSIT). I love coding actually I'm almost 2 years
-          as a self-taught <strong>MERN stack</strong> developer and still enjoying learning new things until now. 
+          I'm <strong className="dark:text-gray-300">Zenric T. Clarete</strong> from KidapAwan City, Philippines. Currently a fourth year student at Notre Dame of 
+          Kidapawan College, taking <strong className="dark:text-gray-300">Bachelor of Information Technology</strong> (BSIT). I love coding actually I'm almost 2 years
+          as a self-taught <strong className="dark:text-gray-300">MERN stack</strong> developer and still enjoying learning new things until now. 
           
         </p>
         <p className="text-gray-500 dark:text-gray-400 text-justify font-medium mt-5">

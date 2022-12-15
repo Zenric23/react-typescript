@@ -53,7 +53,7 @@ const FeaturedProject = () => {
       <div className="grid gap-40">
         {
           featuredProjects.map(item=> (
-            <div key={item.id} className={`grid md:grid-cols-3 gap-10  project-image-card relative ${dark ? 'after:bg-gray-800' : 'after:bg-white'} dark:bg-white`}>
+            <div key={item.id} className={`grid md:grid-cols-3 gap-10  project-image-card relative ${dark ? 'after:bg-gray-800' : 'after:bg-white'}`}>
               <div 
                 className="col-span-2 z-10 h-full lg:h-[350px] rounded-xl relative transition duration-300 ease-in-out hover:scale-105 shadow-lg" 
                 style={getStyle(item.image)}
