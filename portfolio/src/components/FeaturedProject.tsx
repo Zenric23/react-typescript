@@ -4,6 +4,8 @@ import { FiGithub } from 'react-icons/fi'
 import client from '../assets/images/canis.jpg'
 import admin from '../assets/images/proj1_dashboard.jpg'
 import { DarkModeContext } from '../context/darkModeContext'
+import useElementOnScreen from '../hooks/useElementOnScreen'
+import { motion } from 'framer-motion'
 
 // https://eugenebadato.vercel.app/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2F16zwqt7odl38%2F4535K10nsvaMIGAWbMdKRg%2F4e786af3f8ad2ed6ec93e0e829e662c3%2FScreenshot_7.png&w=1920&q=75
 
@@ -45,15 +47,66 @@ const FeaturedProject = () => {
 
   const[showAdminImg, setShowAdminImg] = useState(false)
   const {dark} = useContext(DarkModeContext) as DarkModeContextType
+  const [containerRef, isVisible] = useElementOnScreen({
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.2
+  })
+
+  const headerVariants = {
+    hidden: {
+      x: "-100%"
+    },
+    visible: {
+      x: 0,
+      transition: {
+        duration: 0.5,
+        type: 'spring',
+        stiffness: 100
+      }
+    }
+  }
+
+  const projectItemVariants = {
+    hidden: {
+      opacity: 0,
+      y: 50 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.3,
+        delay: 0.5,
+        type: 'spring',
+        stiffness: 100
+      }
+    },
+  }
   
   return (
-    <div id='projects'>
-      <h3 className="text-title mb-4 dark:text-gray-200">recent projects</h3>
-      <div className="text-indigo-600 text-xl font-bold mb-36">_what i have developed?</div>
+    <div id='projects' ref={containerRef}>
+      <motion.div
+        className='mb-36'
+        variants={headerVariants}
+        animate={isVisible ? 'visible' : 'hidden'}
+      >
+        <h3           
+          className="text-title mb-4 dark:text-gray-200"
+        >
+            recent projects
+        </h3>
+        <div className="text-indigo-600 dark:text-indigo-500 text-xl font-bold">_what i have developed?</div>
+      </motion.div>
       <div className="grid gap-40">
         {
           featuredProjects.map(item=> (
-            <div key={item.id} className={`grid md:grid-cols-3 gap-10  project-image-card relative ${dark ? 'after:bg-gray-800' : 'after:bg-white'}`}>
+            <motion.div 
+              key={item.id}
+              variants={projectItemVariants}
+              animate={isVisible ? 'visible' : 'hidden'}
+              className={`grid md:grid-cols-3 gap-10  project-image-card relative ${dark ? 'after:bg-gray-900' : 'after:bg-white'}`}
+            >
               <div 
                 className="col-span-2 z-10 h-full lg:h-[350px] rounded-xl relative transition duration-300 ease-in-out hover:scale-105 shadow-lg" 
                 style={getStyle(item.image)}
@@ -69,7 +122,7 @@ const FeaturedProject = () => {
                 <h2 className="text-2xl font-extrabold text-gray-700 mb-2.5 dark:text-gray-100">
                   {item.title}
                 </h2>
-                <p className="text-gray-500 font-medium leading-relaxed text-justify dark:text-gray-400">
+                <p className="text-gray-700 font-medium leading-relaxed text-justify dark:text-gray-400">
                   {item.desc} 
                 </p>
                 <div className="flex flex-wrap mt-6 gap-4">
@@ -88,7 +141,7 @@ const FeaturedProject = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))
         }
       </div>

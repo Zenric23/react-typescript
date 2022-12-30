@@ -3,6 +3,7 @@ import { BsMoonStars } from "react-icons/bs";
 import { AiOutlineMenu } from "react-icons/ai";
 import { DarkModeContext } from "../context/darkModeContext";
 import { RiSunLine } from "react-icons/ri";
+import{ motion } from 'framer-motion'
 
 interface Navlink {
   name: string;
@@ -19,6 +20,10 @@ const navLinks: Navlink[] = [
     link: "#projects",
   },
   {
+    name: "experience",
+    link: '#exp'
+  },
+  {
     name: "about",
     link: "#about",
   },
@@ -29,10 +34,23 @@ const navLinks: Navlink[] = [
 ];
 
 const Navbar = () => {
+  
   const { toogleDarkMode, dark } = useContext(
     DarkModeContext
   ) as DarkModeContextType;
   const [open, setOpen] = useState(false);
+
+  const containerVariants = {
+    hidden: { 
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.5
+      } 
+    },
+  }
 
   useEffect(() => {
     if (open) {
@@ -50,18 +68,25 @@ const Navbar = () => {
           open ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       />
-      <nav className="h-[60px] px-10 lg:px-56 flex items-center justify-between text-gray-700 shadow-md md:shadow-none relative bg-white md:bg-transparent dark:bg-gray-900">
+      <motion.nav 
+        className="h-[60px] px-10 lg:px-56 flex items-center justify-between text-gray-700 shadow-md md:shadow-none relative bg-white md:bg-transparent dark:bg-gray-900"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+
+      >
         <span
           onClick={() => setOpen(!open)}
           className="inline md:hidden absolute left-5 text-2xl cursor-pointer dark:text-gray-200"
         >
           <AiOutlineMenu />
         </span>
-        <span className="font-bold text-2xl hidden md:inline dark:text-gray-200">
+        <span className="font-bold text-2xl hidden md:inline dark:text-gray-400">
           ZENRIC.
         </span>
         <div
-          className={`flex gap-20 md:items-center top-[102%] absolute md:static w-[70%] md:w-auto  md:bg-transparent z-10 md:z-0 p-5 md:p-0 h-[calc(100vh-60px)] 
+          className={`flex gap-20 md:items-center top-[102%] absolute md:static w-[70%] md:w-auto  md:bg-transparent z-10 md:z-0 p-5 md:p-0 h-[calc(100vh-60px)]
+
         ${
           dark ? 'bg-gray-900' : 'bg-gray-100'
         }
@@ -85,9 +110,9 @@ const Navbar = () => {
           className="text-2xl cursor-pointer absolute md:static right-5 dark:text-gray-200"
           onClick={toogleDarkMode}
         >
-          {dark ? <RiSunLine /> : <BsMoonStars />}
+          {dark ? <RiSunLine color="yellow" /> : <BsMoonStars color="indigo" />}
         </div>
-      </nav>
+      </motion.nav>
     </>
   );
 };

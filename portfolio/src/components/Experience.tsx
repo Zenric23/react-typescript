@@ -1,4 +1,6 @@
 import React from "react";
+import { motion } from 'framer-motion'
+import useElementOnScreen from "../hooks/useElementOnScreen";
 
 interface Experience {
   company: string,
@@ -23,24 +25,85 @@ const experiences: Experience[] = [
 ]
 
 const Experience = () => {
+
+  const [containerRef, isVisible] = useElementOnScreen({
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.5
+  })
+
+  const headerVariants = {
+    hidden: {
+      x: "-100%"
+    },
+    visible: {
+      x: 0,
+      transition: {
+        duration: 0.5,
+        type: 'spring',
+        stiffness: 100
+      }
+    }
+  }
+
+  const expContainerVariants = {
+    hidden: {
+      opacity: 0
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.5,
+        delayChildren: 0.5
+      }
+    }
+  }
+
+  const expItemVariants = {
+    hidden: {
+      opacity: 0,
+      y: 50 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100
+      }
+    },
+  }
+  
   return (
-    <div>
-      <h3 className="text-title mb-4 dark:text-gray-200">experience</h3>
-      <div className="text-indigo-600 text-xl font-bold mb-20">
-        _what i have done?
-      </div>
-      <div className="grid md:grid-cols-2 gap-10 md:gap-20">
+    <div id="exp" ref={containerRef}>
+      <motion.div
+        animate={isVisible ? 'visible' : 'hidden'}
+        variants={headerVariants}
+      >
+        <h3 className="text-title mb-4 dark:text-gray-200">experience</h3>
+        <div className="text-indigo-600 dark:text-indigo-500 text-xl font-bold mb-20">
+          _what i have done?
+        </div>
+      </motion.div>
+      <motion.div 
+        className="grid md:grid-cols-2 gap-10 md:gap-20"
+        variants={expContainerVariants}
+        animate={isVisible ? 'visible' : 'hidden'}
+      >
         {
           experiences.map(exp=> (
-            <div key={exp.company}>
+            <motion.div 
+              key={exp.company}
+              variants={expItemVariants}
+            >
               <h2 className="text-xl text-gray-700 mb-1 font-bold dark:text-gray-400">{exp.company}</h2>
-              <div className="text-gray-700 dark:text-gray-400">{exp.position}</div>
-              <div className="text-gray-500 mt-1 mb-4 text-sm">{exp.date}</div>
-              <p className="text-gray-500 text-justify font-medium">{exp.desc}</p>
-            </div>
+              <div className="text-gray-500 dark:text-gray-500 font-medium">{exp.position}</div>
+              <div className="text-gray-500 mt-1 mb-4">{exp.date}</div>
+              <p className="text-gray-700 dark:text-gray-400 font-medium text-justify">{exp.desc}</p>
+            </motion.div>
           ))
         }
-      </div>
+      </motion.div>
     </div>
   );
 };
